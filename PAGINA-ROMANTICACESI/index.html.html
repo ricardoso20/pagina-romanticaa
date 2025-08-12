@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ti ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            padding: 50px;
+            position: relative;
+            z-index: 2;
+        }
+        h1 {
+            font-size: 3em;
+            margin-top: 50px;
+        }
+        p {
+            font-size: 1.3em;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .heart {
+            font-size: 5em;
+            animation: latido 1s infinite;
+        }
+        @keyframes latido {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        footer {
+            margin-top: 50px;
+            font-size: 1em;
+            opacity: 0.8;
+        }
+        /* Estilo para el texto cayendo */
+        .falling {
+            position: absolute;
+            top: -50px;
+            font-size: 1.5em;
+            color: white;
+            animation: caer 5s linear infinite;
+        }
+        @keyframes caer {
+            0% { transform: translateY(-50px); opacity: 1; }
+            100% { transform: translateY(110vh); opacity: 0; }
+        }
+        /* Botón para iniciar música */
+        #playBtn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        #playBtn:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Música de fondo -->
+    <audio id="musica" loop>
+        <source src="Mybaby.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio en HTML5.
+    </audio>
+
+    <div class="container">
+        <div class="heart">❤️</div>
+        <h1>Para Ti, Para la chica más hermosa❤️.</h1>
+        <p>
+           "Eres como un rayo de sol en un día nublado, iluminas mi mundo con tu sonrisa. Cada vez que te veo,pero en foto te veo más con las fotos que me mandaste pero mi corazón late más rápido y siento que mi vida cobra sentido. No puedo evitar pensar en ti constantemente, hasta le coloque un sonido unico a tu chat para saber que tu me estas mandando mensaje y. Eres la melodía que siempre quise escuchar, la estrella que guía mi camino, y el sueño que nunca quiero que termine." ❤️
+        </p>
+        <p>
+            Entre más te conozco, más me quiero quedar contigo, quizas no te conozca del todo pero solo se que te gusta dormir mucho.  
+        </p>
+    </p>
+    Si, quiero conocerte, no solo tu color favorito. Quiero conocerte tu alma, quiuero escucharte todo lo que tienes que decir, todo lo que has pasado antes, quiero saber por qué eres como eres, quiero estar ahi para ti en tus altibajas, quiero ser la primera persona al que recurras cuando necesites de alguien.
+    <p>
+
+        <!-- Botón para iniciar la música -->
+        <button id="playBtn">🎵 Reproducir Música</button>
+
+        <footer>
+            Con todo mi cariño Ricardo el chico que te quiere conocer y intentar algo si se puede, dejame demostrarte que todo sera diferente a los demas, demostratrte lo que puedo hacer por ti ❤️.
+        </footer>
+    </div>
+
+    <!-- Script para crear el efecto de "Te quiero" cayendo -->
+    <script>
+        function crearTexto() {
+            const texto = document.createElement("div");
+            texto.classList.add("falling");
+            texto.style.left = Math.random() * window.innerWidth + "px";
+            texto.style.animationDuration = (Math.random() * 3 + 3) + "s";
+            texto.innerText = "Te quiero ❤️";
+            document.body.appendChild(texto);
+
+            setTimeout(() => {
+                texto.remove();
+            }, 6000);
+        }
+        setInterval(crearTexto, 500);
+
+        // Control de música
+        const boton = document.getElementById("playBtn");
+        const musica = document.getElementById("musica");
+
+        boton.addEventListener("click", () => {
+            musica.play();
+            boton.style.display = "none"; // Ocultar el botón después de hacer clic
+        });
+    </script>
+
+</body>
+</html>
+
